@@ -28,7 +28,7 @@ namespace HW_week_12.Repository
 
         public Result ChangeStatus(int id, State state)
         {
-            Result result;
+            Result result; // برای اینکه دوجا ریترن نکنیم 
             var tasks = _appDbContext.Duties.FirstOrDefault(t => t.Id == id);
             tasks.State = state;
 
@@ -57,7 +57,7 @@ namespace HW_week_12.Repository
 
         public Result Delete(int id)
         {
-            Result result; // برای اینکه دوجا ریترن نکنیم 
+            Result result; 
             var duty = _appDbContext.Duties.FirstOrDefault(t => t.Id == id);
             if(duty != null)
             {
@@ -115,9 +115,7 @@ namespace HW_week_12.Repository
             duties.Order = order;
             duties.State = state;
             _appDbContext.Duties.Update(duties);
-            _appDbContext.SaveChanges();
-
-           
+            _appDbContext.SaveChanges();           
         }
     }
 }

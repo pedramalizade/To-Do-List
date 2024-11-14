@@ -1,10 +1,60 @@
 ﻿
 using HW_week_12.Entitis;
 using HW_week_12.Repository;
+using HW_week_12.Service;
 using System.Net.Http.Headers;
-IDutyService _Service = new DutyService();  
-start();
-void start()
+IDutyService _Service = new DutyService();
+IUserService _userService = new UserService();
+
+User();
+void User()
+{
+    while (true)
+    {
+        Console.WriteLine("1. Login ");
+        Console.WriteLine("2. Register");
+        Console.Write("Choice Option: ");
+
+        int option = int.Parse(Console.ReadLine());
+        CheckOption(option);
+    }
+    void CheckOption(int option)
+    {
+        switch (option)
+        {
+            case 1:
+                Console.Write("Enter UserName: ");
+                var username = Console.ReadLine();
+                Console.Write("Enter Passsword: ");
+                var password = Console.ReadLine();
+                _userService.Login(username, password);
+                DutyMenu();
+                break;
+            case 2:
+                Console.Write("Enter UserName: ");
+                var userName = Console.ReadLine();
+                Console.Write("Enter Passsword: ");
+                var Password = Console.ReadLine();
+                Console.Write("Enter Email: ");
+                var email = Console.ReadLine();
+                var user = new User
+                {
+                    UserName = userName,
+                    Password = Password,
+                    Email = email
+                };
+                var result = _userService.Register(user);
+                DutyMenu();
+                break;
+            default:
+                Console.WriteLine("Wrong Number!!!");
+                break;
+
+        }
+    }
+}
+
+void DutyMenu()
 {
     while (true)
     {
@@ -37,7 +87,7 @@ void start()
 
                 break;
             case 2:
-                foreach(var item in _Service.GetAll())
+                foreach (var item in _Service.GetAll())
                 {
                     Console.WriteLine(item.Id + "=" + item.Title + "|" + item.TimeToDone + "|" + item.Order + "|" + item.State);
 
@@ -82,7 +132,7 @@ void start()
             case 6:
                 Console.Write("Enter Title: ");
                 var searchTitle = Console.ReadLine();
-               var duties = _Service.Search(searchTitle);
+                var duties = _Service.Search(searchTitle);
                 foreach (var item in duties)
                 {
                     Console.WriteLine(item.Title + "|" + item.TimeToDone);

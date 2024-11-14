@@ -16,5 +16,6 @@ namespace HW_week_12.DbContect
             base.OnConfiguring(optionsBuilder);
         }
         public DbSet<Duty> Duties { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

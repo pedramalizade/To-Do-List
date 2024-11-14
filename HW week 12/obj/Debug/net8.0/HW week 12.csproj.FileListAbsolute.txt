@@ -128,3 +128,4 @@ C:\Users\asus\source\repos\HW week 12\HW week 12\obj\Debug\net8.0\refint\HW week
 C:\Users\asus\source\repos\HW week 12\HW week 12\obj\Debug\net8.0\HW week 12.pdb
 C:\Users\asus\source\repos\HW week 12\HW week 12\obj\Debug\net8.0\HW week 12.genruntimeconfig.cache
 C:\Users\asus\source\repos\HW week 12\HW week 12\obj\Debug\net8.0\ref\HW week 12.dll
+C:\Users\asus\source\repos\HW week 12\HW week 12\obj\Debug\net8.0\HW week 12.sourcelink.json
