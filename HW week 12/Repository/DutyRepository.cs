@@ -19,9 +19,9 @@ namespace HW_week_12.Repository
         }
 
 
-        public void Add(string title, DateTime timeToDone, int order, State state)
+        public void Add(int userId, string title, DateTime timeToDone, int order, State state)
         {
-            var duty = new Duty(title, timeToDone, order, state);
+            var duty = new Duty(userId, title, timeToDone, order, state);
             _appDbContext.Duties.Add(duty);
             _appDbContext.SaveChanges();
         }

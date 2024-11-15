@@ -27,7 +27,7 @@ void User()
                 var username = Console.ReadLine();
                 Console.Write("Enter Passsword: ");
                 var password = Console.ReadLine();
-                _userService.Login(username, password);
+                _userService.Login(username, password);            
                 DutyMenu();
                 break;
             case 2:
@@ -75,6 +75,8 @@ void DutyMenu()
         switch (output)
         {
             case 1:
+                Console.Write("Enter UserId: ");
+                var userId = int.Parse(Console.ReadLine());
                 Console.Write("Enter Title: ");
                 var title = Console.ReadLine();
                 Console.Write("Enter Time To Done: ");
@@ -83,7 +85,7 @@ void DutyMenu()
                 var order = int.Parse(Console.ReadLine());
                 Console.Write("Enter State (1: InPending, 2: Done, 3: Cancelled): ");
                 var state = Convert.ToInt32(Console.ReadLine());
-                _Service.Add(title, timeToDone, order, (State)state);
+                _Service.Add(userId, title, timeToDone, order, (State)state);
 
                 break;
             case 2:
@@ -124,7 +126,7 @@ void DutyMenu()
             case 5:
                 Console.Write("Enter Id: ");
                 var ChangeId = int.Parse(Console.ReadLine());
-                Console.Write("Enter State: ");
+                Console.Write("Enter State (1: InPending, 2: Done, 3: Cancelled): ");
                 var changeState = int.Parse(Console.ReadLine());
                 var result2 = _Service.ChangeStatus(ChangeId, (State)changeState);
                 Console.WriteLine(result2.ResultText);

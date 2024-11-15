@@ -15,8 +15,9 @@ namespace HW_week_12.Entitis
         public int Order { get; set; }
         public State State { get; set; }
         public int UserId { get; set; }
-        public Duty(string title, DateTime timeToDone, int order, State state)
+        public Duty(int userId, string title, DateTime timeToDone, int order, State state)
         {
+            UserId = userId;
             Title = title;
             TimeToDone = timeToDone;
             Order = order;

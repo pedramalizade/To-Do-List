@@ -16,9 +16,9 @@ namespace HW_week_12.Repository
         {
             _repository = new DutyRepository();
         }
-        public void Add(string title, DateTime timeToDone, int order, State state)
+        public void Add(int userId ,string title, DateTime timeToDone, int order, State state)
         {
-            _repository.Add(title, timeToDone, order, state);
+            _repository.Add(userId, title, timeToDone, order, state);
         }
 
         public Result ChangeStatus(int id, State state)

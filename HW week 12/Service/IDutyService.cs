@@ -9,7 +9,7 @@ namespace HW_week_12.Repository
 {
     public interface IDutyService
     {
-        public void Add(string title, DateTime timeToDone, int order, State state);
+        public void Add(int userId, string title, DateTime timeToDone, int order, State state);
         public List<Duty> GetAll();
         public void Update(int id, string title, DateTime timeToDone, int order, State state);
         public Result Delete(int id);
